@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Psychic Game</title>
+    <link rel="stylesheet" type="text/css" href="">
+    <script></script>
+</head>
+<body>
+    <h1>The Psychic Game</h1>
+    <h3>Guess what letter I'm thinking of...</h3>
+</body>
+
+<script>
+    var wins = 0;
+    var losses = 0;
+    var userGuessesLeft = 9;
+    var userWrongGuess = "";
+    var letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+    
+    console.log (event);
+    console.log (wins);
+    console.log (userGuessesLeft);
+    document.onkeyup = function(event) {
+        var userGuess = event.key;
+        
+        
+
+        var computerGuess = letters[Math.floor(Math.random() * letters.length)]
+
+        if (userGuess === computerGuess){
+            wins++;
+        } else if (userGuess != computerGuess) {
+            userGuessesLeft--;
+        } else if (userGuessesLeft === 0) {
+            losses++;
+        }
+    }
+    
+    //generate letter a-z
+    //record what turn user is on 
+    //once guess key has been pressed, computer checks to see if it's right
+    //if userGuess is correct, increase wins by 1
+    //if wrong, allow next guess decrease userWrongGuess by 1
+    //if userWrongGuess is at 0 add 1 to losses and reset game
+
+    
+
+</script>
+</html>
