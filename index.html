@@ -20,7 +20,7 @@
     var wins = 0;
     var losses = 0;
     var userGuessesLeft = 9;
-    var userWrongGuess = [""];
+    var userWrongGuess = [];
     var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
     var computerGuess = letters[Math.floor(Math.random() * letters.length)];
@@ -39,19 +39,18 @@
         if (userGuess === computerGuess) {
             wins++;
             userGuessesLeft = 9;
-            userWrongGuess = [""];
+            userWrongGuess = [];
             computerGuess = letters[Math.floor(Math.random() * letters.length)];
             console.log(computerGuess);
-        } 
-        if (userGuess !== computerGuess) {
+        } else {
             userGuessesLeft--;
-            userWrongGuess[userWrongGuess.length]= userGuess;
+            userWrongGuess.push(userGuess);
 
         };
         if (userGuessesLeft === 0) {
             losses++;
             userGuessesLeft = 9;
-            userWrongGuess = [""];
+            userWrongGuess = [];
             computerGuess = letters[Math.floor(Math.random() * letters.length)];
             console.log(computerGuess);
         };
