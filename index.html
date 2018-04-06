@@ -28,12 +28,17 @@
     console.log(wins);
     console.log(userGuessesLeft);
     console.log(losses);
-    console.log(letters);
     console.log(userWrongGuess);
 
     document.onkeypress = function (event) {
         var userGuess = event.key;
-
+        
+        for(var i = 0; i < letters.length; i++) {
+            if(userWrongGuess[i] == userGuess) {
+                alert("You already chose that letter");
+                return;
+            }
+        }
 
 
         if (userGuess === computerGuess) {
@@ -41,18 +46,21 @@
             userGuessesLeft = 9;
             userWrongGuess = [];
             computerGuess = letters[Math.floor(Math.random() * letters.length)];
-            console.log(computerGuess);
+            console.log("You Win!")
+            console.log("The next computer guess is " + computerGuess);
+            
         } else {
             userGuessesLeft--;
             userWrongGuess.push(userGuess);
 
-        };
+        }
         if (userGuessesLeft === 0) {
             losses++;
             userGuessesLeft = 9;
             userWrongGuess = [];
             computerGuess = letters[Math.floor(Math.random() * letters.length)];
-            console.log(computerGuess);
+            console.log("You Lose!")
+            console.log("The next computer guess is " + computerGuess);
         };
 
 
@@ -68,6 +76,8 @@
     //if userGuess is correct, increase wins by 1
     //if wrong, allow next guess decrease userWrongGuess by 1
     //if userWrongGuess is at 0 add 1 to losses and reset game
+    
+    //ADD USER CAN'T GUESS SAME LETTER TWICE
 
 
 
