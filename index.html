@@ -3,84 +3,22 @@
 
 <head>
     <title>Psychic Game</title>
-    <link rel="stylesheet" type="text/css" href="">
-    <script></script>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <script type="text/javascript" src="assets/game.js"></script>
 </head>
 
 <body>
-    <h1>The Psychic Game</h1>
-    <h3>Guess what letter I'm thinking of...</h3>
-    <p id="wins">Wins: </p>
-    <p id="losses">losses: </p>
-    <p id="userGuessesLeft">Guesses left: </p>
-    <p id="userWrongGuess">Your guesses so far:</p>
+    <div class="jumbotron">
+        <h1>The Psychic Game</h1>
+        <h4>Guess what letter I'm thinking of...</h4>
+    </div>
+    <div class="rounded container" style="margin-left: 13%;">
+        <div id="game">
+            Press any key to start playing!
+        </div>
+    </div>
 </body>
-
-<script type="text/javascript">
-    var wins = 0;
-    var losses = 0;
-    var userGuessesLeft = 9;
-    var userWrongGuess = [];
-    var letters = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-
-    var computerGuess = letters[Math.floor(Math.random() * letters.length)];
-    console.log(computerGuess);
-    console.log(wins);
-    console.log(userGuessesLeft);
-    console.log(losses);
-    console.log(userWrongGuess);
-
-    document.onkeypress = function (event) {
-        var userGuess = event.key;
-        
-        for(var i = 0; i < letters.length; i++) {
-            if(userWrongGuess[i] == userGuess) {
-                alert("You already chose that letter");
-                return;
-            }
-        }
-
-
-        if (userGuess === computerGuess) {
-            wins++;
-            userGuessesLeft = 9;
-            userWrongGuess = [];
-            computerGuess = letters[Math.floor(Math.random() * letters.length)];
-            console.log("You Win!")
-            console.log("The next computer guess is " + computerGuess);
-            
-        } else {
-            userGuessesLeft--;
-            userWrongGuess.push(userGuess);
-
-        }
-        if (userGuessesLeft === 0) {
-            losses++;
-            userGuessesLeft = 9;
-            userWrongGuess = [];
-            computerGuess = letters[Math.floor(Math.random() * letters.length)];
-            console.log("You Lose!")
-            console.log("The next computer guess is " + computerGuess);
-        };
-
-
-        document.getElementById('wins').innerHTML = "Wins: " + wins;
-        document.getElementById('losses').innerHTML = "Losses: " + losses;
-        document.getElementById('userGuessesLeft').innerHTML = "Guesses left: " + userGuessesLeft;
-        document.getElementById('userWrongGuess').innerHTML = "Your guesses so far: " + userWrongGuess;
-
-    }
-    //generate letter a-z
-    //record what turn user is on 
-    //once guess key has been pressed, computer checks to see if it's right
-    //if userGuess is correct, increase wins by 1
-    //if wrong, allow next guess decrease userWrongGuess by 1
-    //if userWrongGuess is at 0 add 1 to losses and reset game
-    
-    //ADD USER CAN'T GUESS SAME LETTER TWICE
-
-
-
-</script>
 
 </html>

@@ -1,0 +1,13 @@
+.jumbotron {
+    text-align: center;
+}
+
+.container {
+    background-color: lightblue;
+    float: left;
+    text-align: center;
+}
+
+body {
+    background-image: url("../images/stardust/stardust.png")
+}
